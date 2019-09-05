@@ -1,0 +1,135 @@
+/* Use font-face to load one font file. To load multiple font files, you need multiple @font-face. Usually a good idea to load fonts first, before any other CSS */
+@font-face {
+	font-family: "The Friday Stroke";
+	src: url("the_friday_stroke/friday.otf");
+}
+html,body {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #4d7f96;
+	font-family: 'Chilanka', cursive;
+}
+#header {
+	background-image: url('http://303.itpwebdev.com/~ta303/assets/the-office/theoffice.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 110px 0px;
+}
+#header h1 {
+	margin: 0;
+	text-align: center;
+	color: white;
+	font-size: 80px;
+	text-shadow: 3px 2px 0 #7A7A7A;
+	font-family: "The Friday Stroke", Arial, sans-serif;
+	font-weight: normal;
+}
+#main {
+	/*width: 1000px;*/
+	width: 90%;
+	/* #main cannot be bigger than 1000px*/
+	max-width: 1000px;
+
+	margin: 0 auto;
+	background-color: red;
+}
+#main:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+#sidebar {
+	float: left;
+	/*width: 180px;*/
+	width: 20%;
+	/* shorthand for top/bottom 0px and left/right 10px*/
+	padding: 0px 20px;
+
+	/* magical property that solves padding / width issues */
+	box-sizing: border-box;
+
+	text-align: center;
+	background-color: #d9f2fd;
+}
+#sidebar img {
+	width: 100%;
+}
+#content {
+	float: left;
+	/*width: 780px;*/
+	width: 80%;
+	padding: 0px 10px;
+
+	/* magical property that solves padding / width issues */
+	box-sizing: border-box;
+
+	background-color: white;
+}
+#content .figure {
+	text-align: center;
+}
+#footer {
+	background-color: #263f4b;
+	color: white;
+	padding: 10px 0;
+	text-align: center;
+}
+
+@media ( max-width: 768px ) {
+	#header h1 {
+		color: red;
+	}
+	#main {
+		width: 100%;
+	}
+	#sidebar {
+		width: 100%;
+	}
+	#content {
+		width: 100%;
+	}
+	#sidebar .character {
+		width: 24%;
+		float: left;
+		margin-left: 0.5%;
+		margin-right: 0.5%;
+		/* This only works for padding. 
+		Margins will still add space */
+		box-sizing: border-box;
+	}
+}
+@media ( max-width: 576px ) {
+	#header h1 {
+		color: green;
+	}
+	#sidebar .character {
+		width: 48%;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
