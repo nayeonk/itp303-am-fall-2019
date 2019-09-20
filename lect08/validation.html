@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Form</title>
+	<style>
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+			/*justify-content: center;*/
+		}
+		label {
+			width: 100px;
+		}
+		.red {
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Form</h1>
+
+	<!-- Creating forms in HTML -->
+	<form method="" action="" id="form">
+
+		<div class="form-row">
+
+			<!-- Label is the text, input is the actual box where user types in. Label and input are associated by using for/id attributes. -->
+			<label for="name-input">Name:</label>
+			<input id="name-input" type="text" name="name" placeholder="Type your name"/>
+
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age:</label>
+			<input id="age-input" type="text" name="age" placeholder="How old are you?"/>
+		</div>
+
+		<div class="form-row">
+			<label for="year-input">Year:</label>
+			<select id="year-input">
+				<option>Freshman</option>
+				<option>Sophomore</option>
+				<option>Junior</option>
+				<option>Senior</option>
+				<option>Grad</option>
+			</select>
+		</div>
+
+		<div class="form-row">
+			<label for="comments-input">Comments</label>
+			<textarea id="comments-input"></textarea>
+		</div>
+
+		<button type="submit">Submit</button>
+		<div id="message"></div>
+
+	</form>
+
+<script>
+		
+document.querySelector("#name-input").oninput = function() {
+
+	console.log("something is being typed");
+
+	// .trim() removes any leading or trailing spaces
+	let nameInput = document.querySelector("#name-input").value.trim();
+
+	console.log(nameInput);
+	console.log(nameInput.length);
+
+	if( nameInput.length > 3 ) {
+		console.log("BADDDDDD");
+		//alert("Too long!!");\
+		console.log( this.previousElementSibling );
+
+		// Inline CSS
+		// this.previousElementSibling.style.color = "red";
+		// this.previousElementSibling.style.fontWeight = "bold";
+
+		// Use CSS class isntead
+		this.previousElementSibling.classList.add("red");
+	}
+	else {
+		this.previousElementSibling.classList.remove("red");
+	}
+}
+// When user submits the #form
+document.querySelector("#form").onsubmit = function(event) {
+	// Prevent the form from being actually submitted
+	// two ways to do this
+	// return false;
+
+	// console.log(event);
+
+	// second way to prevent user from submitting the form
+	// this method prevents the default behavior. in this case, the default behavior of onsubmit is submitting a form. I want to prevent the form from being submitted.
+	event.preventDefault();
+
+	// Check that name & age fields are set
+	if( document.querySelector("#name-input").value.trim().length == 0 ) {
+		document.querySelector("#message").innerHTML = "Please fill out your name.";
+	}
+	else if( document.querySelector("#age-input").value.trim().length == 0 ) {
+		document.querySelector("#message").innerHTML = "Please fill out your age.";
+	}
+	else {
+		document.querySelector("#message").innerHTML = "Great!";
+	}
+}
+
+// .onkeypress
+// .onscroll
+
+
+
+let number = 7;
+let text = "7";
+
+console.log( number + text  );
+console.log( number + number  );
+
+console.log( 7 * 3 );
+console.log( 7 / 3 );
+console.log( 1 / 0 );
+console.log( 1 / 2 );
+console.log( 1 / "hi" ); // returns NaN
+
+let aNumber = "10";
+let aDecimal = "10.01";
+
+// convert strings to numbers
+
+console.log( parseInt(aNumber) );
+console.log( parseFloat(aDecimal) );
+
+
+// Weirdness can happen when adding two floating points
+console.log( 0.1 + 0.2 );
+
+// To go around this issue
+let num1 = 0.1;
+let num2 = 0.2;
+
+// Convert floating points to INTEGERS
+num1 = num1 * 10;
+num2 = num2 * 10;
+
+// Then do the calculation
+let total = num1 + num2;
+
+// Then convert back into floating points
+total = total / 10;
+
+console.log(total);
+
+// JS has a built in MATH library
+console.log( Math.PI );
+
+
+// console.log( 0.1 + 0.1 );
+
+// Strings are array of characters
+let name = "nayeon";
+console.log( name[0] );
+console.log( name.length );
+// Some useful string methods
+console.log( name.indexOf("n") );
+console.log( name.lastIndexOf("n") );
+console.log( name.indexOf("Z") );
+console.log( name.toUpperCase() );
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
