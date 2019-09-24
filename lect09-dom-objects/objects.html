@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Objects</title>
+	<style>
+		#people {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h1>People</h1>
+
+	<div id="people">
+	</div>
+
+	<script>
+		// Two ways to create an object in JS
+
+		// 1. Literal syntax
+
+		let tommy = {
+			name: "Tommy Trojan",
+			phone: {
+				cell: "123-123-1234",
+				work: "555-555-5555"
+			},
+			hobbies: ["standing", "taking photos", "cheering"],
+			greet: function() {
+				console.log("Hi!");
+			}
+		};
+
+		let traveler = {
+			name: "Traveler van Horse",
+			age: 22,
+			phone: {
+				cell: "123-123-1234",
+				work: "555-555-5555"
+			},
+			hobbies: ["looking good", "taking photos", "frolicking"],
+			greet: function() {
+				console.log("Hi!");
+			}
+		};
+
+		console.log(tommy);
+		console.log(tommy.age);
+		console.log(tommy.name);
+		console.log(tommy.hobbies[0]);
+		console.log(tommy.phone.cell);
+		tommy.greet();
+
+		// 2. Constructor Function Syntax
+		function Person (fullName, age) {
+			this.name = fullName;
+			this.age = age;
+			this.greet = function() {
+				console.log("Hi!");
+			}
+		}
+
+		let joe = new Person("Joe Smith", 35);
+		let jimmy = new Person("Jimmy Kimmel", 40);
+
+		console.log(joe);
+		console.log(joe.age);
+
+		console.log(jimmy);
+
+
+		// When working with a lot of objects, we can store them in an array
+
+		let list = [];
+		list.push(joe, jimmy, tommy, traveler);
+
+		console.log("----- LIST STARTS HERE")
+		console.log(list);
+
+		let people = document.querySelector("#people");
+
+		// Create a <p> tag for each person
+		for( let i = 0; i < list.length; i++) {
+
+			let pElement = document.createElement("p");
+			// if age doesnt exist 	
+			pElement.innerHTML = list[i].name + " - " + list[i].age;
+			console.log(pElement);
+			people.appendChild(pElement);
+
+		}
+
+
+		
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
